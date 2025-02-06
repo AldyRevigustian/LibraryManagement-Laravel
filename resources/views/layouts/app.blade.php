@@ -67,9 +67,7 @@
                     <div class="logo center">
                         <img src="{{ $identitas->foto }}" style="width: 150px; height: 150px;" alt="Logo">
                     </div>
-                    <div class="sidebar-toggler	x">
-                        <a href="#" class="sidebar-hide d-xl-none d-block"><i class="bi bi-x bi-middle"></i></a>
-                    </div>
+
                 </div>
             </div>
             <div class="sidebar-menu">
@@ -106,6 +104,27 @@
             appBody.classList.add("theme-light");
         };
     </script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const toggleBtn = document.getElementById("toggle-dashboard");
+            const menuIcon = document.getElementById("menu-icon");
+
+            toggleBtn.addEventListener("click", function(e) {
+                e.preventDefault(); // Mencegah default behavior dari `<a href="#">`
+                console.log('clicl');
+                // // Cek apakah menu sedang terbuka atau tertutup
+                // if (menuIcon.classList.contains("bi-justify")) {
+                //     menuIcon.classList.remove("bi-justify");
+                //     menuIcon.classList.add("bi-x");
+                // } else {
+                //     menuIcon.classList.remove("bi-x");
+                //     menuIcon.classList.add("bi-justify");
+                // }
+            });
+        });
+    </script>
+
     @stack('script')
 </body>
 
