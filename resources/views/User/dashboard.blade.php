@@ -17,11 +17,6 @@
         }
     </style>
     <div class="col">
-        @foreach ($pemberitahuans as $pemberitahuan)
-            <div class="alert alert-primary" role="alert">
-                {{ $pemberitahuan->isi }}
-            </div>
-        @endforeach
         @foreach ($kategoris as $kategori)
             <h4>{{ $kategori->nama }}</h4>
             <div class="scrolling-wrapper">

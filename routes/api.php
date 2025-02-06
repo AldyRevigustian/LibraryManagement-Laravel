@@ -57,19 +57,6 @@ Route::group(['middleware' => ['auth:sanctum', 'role:admin'], 'prefix' => 'admin
         Route::post('/', 'update');
     });
 
-    Route::prefix('pemberitahuan')->controller(App\Http\Controllers\API\admin\PemberitahuanController::class)->group(function () {
-        Route::get('/', 'index');
-        Route::post('/', 'store');
-        Route::post('/{id}', 'update');
-        Route::delete('/{id}', 'destroy');
-    });
-
-    Route::prefix('pesan')->controller(App\Http\Controllers\API\admin\PesanController::class)->group(function () {
-        Route::get('/', 'index');
-        Route::post('/', 'store');
-        Route::post('/{id}', 'update');
-        Route::delete('/{id}', 'destroy');
-    });
 });
 
 Route::group(['middleware' => ['auth:sanctum', 'role:user'], 'prefix' => 'user'], function () {
@@ -83,15 +70,6 @@ Route::group(['middleware' => ['auth:sanctum', 'role:user'], 'prefix' => 'user']
         Route::post('/', 'store');
     });
 
-    Route::prefix('pemberitahuan')->controller(App\Http\Controllers\API\user\PemberitahuanController::class)->group(function () {
-        Route::get('/', 'index');
-    });
-
-    Route::prefix('pesan')->controller(App\Http\Controllers\API\user\PesanController::class)->group(function () {
-        Route::get('/', 'index');
-        Route::post('/', 'store');
-        Route::post('/{id}', 'update');
-    });
 
     Route::prefix('profile')->controller(App\Http\Controllers\API\user\ProfileController::class)->group(function () {
         Route::get('/', 'index');

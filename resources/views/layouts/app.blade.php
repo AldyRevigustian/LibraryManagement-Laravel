@@ -8,7 +8,6 @@
     <title>{{ config('app.name', 'E-Perpus') }}</title>
 
     <link rel="stylesheet" href="/assets/css/main/app.css">
-    <link rel="stylesheet" href="/assets/css/main/app-dark.css">
     <link rel="shortcut icon" href="/assets/images/logo/favicon.svg" type="image/x-icon">
     <link rel="shortcut icon" href="/assets/images/logo/favicon.png" type="image/png">
 
@@ -16,6 +15,7 @@
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
+    <link rel="stylesheet" href="/assets/extensions/apexcharts/apexcharts.css">
     <link rel="stylesheet" href="/assets/extensions/simple-datatables/style.css">
     <link rel="stylesheet" href="/assets/css/pages/simple-datatables.css">
     <link rel="stylesheet" href="/assets/extensions/choices.js/public/assets/styles/choices.css" />
@@ -52,7 +52,7 @@
             background-color: white
         }
     </style>
-    @stack('script')
+    {{-- @stack('script') --}}
 
 </head>
 @php
@@ -94,6 +94,8 @@
     <script src="/assets/js/pages/simple-datatables.js"></script>
     <script src="/assets/extensions/choices.js/public/assets/scripts/choices.js"></script>
     <script src="/assets/js/pages/form-element-select.js"></script>
+    <script src="/assets/extensions/apexcharts/apexcharts.js"></script>
+
     <script>
         const appBody = document.body;
         if (localStorage.getItem('theme') == 'theme-dark') {
@@ -103,26 +105,8 @@
             localStorage.setItem('theme', "theme-light")
             appBody.classList.add("theme-light");
         };
-    </script>
 
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            const toggleBtn = document.getElementById("toggle-dashboard");
-            const menuIcon = document.getElementById("menu-icon");
 
-            toggleBtn.addEventListener("click", function(e) {
-                e.preventDefault(); // Mencegah default behavior dari `<a href="#">`
-                console.log('clicl');
-                // // Cek apakah menu sedang terbuka atau tertutup
-                // if (menuIcon.classList.contains("bi-justify")) {
-                //     menuIcon.classList.remove("bi-justify");
-                //     menuIcon.classList.add("bi-x");
-                // } else {
-                //     menuIcon.classList.remove("bi-x");
-                //     menuIcon.classList.add("bi-justify");
-                // }
-            });
-        });
     </script>
 
     @stack('script')

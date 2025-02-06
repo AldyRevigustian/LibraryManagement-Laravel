@@ -58,27 +58,6 @@
         </a>
     </li>
 
-    <li class="sidebar-item has-sub {{ request()->is('admin/pesan*') ? 'active' : '' }}">
-        <a href="#" class="sidebar-link">
-            <i class="bi bi-envelope-fill"></i>
-            <span>Pesan</span>
-        </a>
-        <ul class="submenu {{ request()->is('admin/pesan*') ? 'active' : '' }}">
-            <li class="submenu-item {{ request()->is('admin/pesan/terkirim') ? 'active' : '' }}">
-                <a href="{{ route('admin.pesan_terkirim') }}">Pesan Terkirim</a>
-            </li>
-            <li class="submenu-item {{ request()->is('admin/pesan/masuk') ? 'active' : '' }}">
-                <a href="{{ route('admin.pesan_masuk') }}">Pesan Masuk</a>
-            </li>
-        </ul>
-    </li>
-
-    <li class="sidebar-item {{ request()->is('admin/pemberitahuan*') ? 'active' : '' }}">
-        <a href="{{ route('admin.pemberitahuan') }}" class='sidebar-link'>
-            <i class="bi bi-megaphone-fill"></i> <span>Pemberitahuan</span>
-        </a>
-    </li>
-
     <li class="sidebar-item" style="margin-bottom:5rem;">
         <a href="{{ route('logout') }}" onclick="event.preventDefault();
 document.getElementById('logout-form').submit();"

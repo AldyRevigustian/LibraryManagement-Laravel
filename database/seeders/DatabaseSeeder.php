@@ -2,13 +2,11 @@
 
 namespace Database\Seeders;
 
-use App\Models\Pemberitahuan;
 use App\Models\Buku;
 use App\Models\Identitas;
 use App\Models\Kategori;
 use App\Models\Peminjaman;
 use App\Models\Penerbit;
-use App\Models\Pesan;
 use App\Models\User;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
@@ -150,39 +148,12 @@ class DatabaseSeeder extends Seeder
             'kondisi_buku_saat_dipinjam' => 'baik',
         ]);
 
-        Pesan::create([
-            'pengirim_id' => 1,
-            'penerima_id' => 2,
-            'judul' => 'Tolong Balikan Buku',
-            'isi' => 'Balikin Bukunya Dong :)',
-            'status' => 'terkirim',
-            'tanggal_kirim' => date('Y-m-d'),
-        ]);
-        Pesan::create([
-            'pengirim_id' => 2,
-            'penerima_id' => 1,
-            'judul' => 'Sudah Saya Balikin',
-            'isi' => 'Sudah Mint',
-            'status' => 'terkirim',
-            'tanggal_kirim' => date('Y-m-d'),
-        ]);
-
         Identitas::create([
             'nama_app' => 'E-Perpus SMKN 10',
             'alamat_app' => 'Jl. Mayjen Sutoyo, Daerah Khusus Ibukota Jakarta 13630',
             'email_app' => 'smkn10@perpus.com',
             'nomor_telepon' => '081219019667',
             'foto' => '/assets/images/logo/logo.png'
-        ]);
-
-        Pemberitahuan::create([
-            'isi' => 'Sedang ada perbaikan server',
-            'status' => 'nonaktif',
-        ]);
-
-        Pemberitahuan::create([
-            'isi' => 'Sedang ada penambahan data di database',
-            'status' => 'aktif',
         ]);
     }
 }

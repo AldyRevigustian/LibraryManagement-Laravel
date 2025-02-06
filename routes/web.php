@@ -91,22 +91,6 @@ Route::prefix('admin')->middleware('role:admin')->group(function () {
         Route::get('/', 'index')->name('admin.identitas');
         Route::put('/', 'update')->name('admin.update_identitas');
     });
-
-
-    Route::prefix('pesan')->controller(App\Http\Controllers\Admin\PesanController::class)->group(function () {
-        Route::get('/terkirim', 'terkirim')->name('admin.pesan_terkirim');
-        Route::post('/terkirim', 'kirim_pesan')->name('admin.kirim_pesan');
-
-        Route::get('/masuk', 'masuk')->name('admin.pesan_masuk');
-        Route::post('/masuk', 'baca_pesan')->name('admin.baca_pesan');
-    });
-
-    Route::prefix('pemberitahuan')->controller(App\Http\Controllers\Admin\PemberitahuanController::class)->group(function () {
-        Route::get('/', 'index')->name('admin.pemberitahuan');
-        Route::post('/', 'store')->name('admin.store_pemberitahuan');
-        Route::post('/{id}', 'update')->name('admin.update_pemberitahuan');
-        Route::delete('/{id}', 'destroy')->name('admin.destroy_pemberitahuan');
-    });
 });
 
 Route::prefix('user')->middleware('role:user')->group(function () {
@@ -118,19 +102,6 @@ Route::prefix('user')->middleware('role:user')->group(function () {
     Route::prefix('peminjaman')->controller(App\Http\Controllers\User\PeminjamanController::class)->group(function () {
         Route::get('/', 'index')->name('user.peminjaman');
         Route::post('/', 'store')->name('user.store_peminjaman');
-    });
-
-    Route::prefix('pengembalian')->controller(App\Http\Controllers\User\PengembalianController::class)->group(function () {
-        Route::get('/', 'index')->name('user.pengembalian');
-        Route::post('/', 'store')->name('user.store_pengembalian');
-    });
-
-    Route::prefix('pesan')->controller(App\Http\Controllers\User\PesanController::class)->group(function () {
-        Route::get('/terkirim', 'terkirim')->name('user.pesan_terkirim');
-        Route::post('/terkirim', 'kirim_pesan')->name('user.kirim_pesan');
-
-        Route::get('/masuk', 'masuk')->name('user.pesan_masuk');
-        Route::post('/masuk', 'baca_pesan')->name('user.baca_pesan');
     });
 
     Route::prefix('profile')->controller(App\Http\Controllers\User\ProfileController::class)->group(function () {
